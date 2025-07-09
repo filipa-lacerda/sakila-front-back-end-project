@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import Alphabet from "../../utils/Alphabet"
+import Alphabet from "./Alphabet"
 
 
 export default function SearchOption({handleSubmitCustomer, handleSubmitStore, customers, stores}){
