@@ -3,7 +3,6 @@ import AutoLoad from '@fastify/autoload'
 import { fileURLToPath } from 'node:url'
 import cors from "@fastify/cors"
 import fastifyMysql from '@fastify/mysql'
-import { hostname } from 'node:os'
 import dotenv from 'dotenv'
 dotenv.config()
 
