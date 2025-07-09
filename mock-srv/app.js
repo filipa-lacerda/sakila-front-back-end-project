@@ -5,6 +5,8 @@ import cors from "@fastify/cors"
 import fastifyMysql from '@fastify/mysql'
 import { hostname } from 'node:os'
 
+const password = process.env.DB_PASSWORD
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
@@ -18,7 +20,7 @@ export default async function (fastify, opts) {
   fastify.register(fastifyMysql, {
     host: "localhost",
     user: "root",
-    password: "Pmgsal1988",
+    password: password,
     database: "sakila",
     promise: true, //changes everything into promisses instead of callbacks
   

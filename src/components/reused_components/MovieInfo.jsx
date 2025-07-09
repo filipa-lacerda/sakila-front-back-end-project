@@ -9,10 +9,8 @@ export default function MovieInfo({API}){
             store_id: store,
             film_id: id
         }
-    console.log(payload)
+    
     async function fetchMovieInfo(method= "GET", payload){
-
-        
 
         const send = method == "GET" ? {} :
         {
@@ -22,8 +20,8 @@ export default function MovieInfo({API}){
         try {
             const res = await fetch(`${API}/sakila/movie`, {method, ...send})
             const data = await res.json()
-            console.log("movieinfo", id)
-            console.log("store", store)
+            //console.log("movieinfo", id)
+            //console.log("store", store)
             setMovieInfo(data.movieInfo)
             
         } catch (err){
@@ -68,25 +66,9 @@ export default function MovieInfo({API}){
     ))
 
 
-    /**
-     * 
-     * <div className="container my-5" key={movie.film_id}>
-                <div className="p-5 text-center bg-body-tertiary rounded-3">
-                    <h3 className="text-body-emphasis">{movie.title}</h3>
-                    <p className="col-lg-8 mx-auto fs-5 text-muted">{movie.description}</p>
-                    <div className="d-inline-flex gap-5 mb-5">
-                        <p className="lead">Language: {movie.language}</p>
-                    </div>
-                </div>
-            </div>
-     */
-
-
     return (
         <>
             {movieInfo &&  movieInfoElement}
         </>
     )
 }
-
-// film.title, film.description, language.name as "language", film.length, film.release_year
