@@ -112,8 +112,8 @@ export default function RentalHistory({API}){
             rental_id: rentalId
         }
         await fetchReturnRental("POST", payload)
-        console.log("store id: ", storeId)
-        console.log("customer id: ",customerId)
+        //console.log("store id: ", storeId)
+        //console.log("customer id: ",customerId)
         const payloadMovies = {
                 customer_id: customerId
             };
@@ -146,27 +146,3 @@ export default function RentalHistory({API}){
         </div>
     )
 }
-
-
-
-
-
-/* Delete in the end
-    async function fetchMovies(method= "GET", payload) {
-        const send = method == "GET" ? {}: {
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(payload) 
-        }
-        
-        try{
-            const res = await fetch(`${API}/sakila/movies`, {method, ...send})
-            const data = await res.json()
-            console.log("prev_function",data.movies)
-            setMovies(data.movies)    
-        }
-        catch (err){
-            return err
-        }
-        
-    }
-*/
