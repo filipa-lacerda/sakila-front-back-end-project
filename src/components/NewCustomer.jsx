@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Header from "./Header"
 import Input from "./reused_components/Input";
+import { verifyCustomerAPI } from "../utils/verifyCustomerAPI";
 
 export default function NewCustomer({API}){
 
@@ -37,34 +38,21 @@ export default function NewCustomer({API}){
     
 
     async function verifyCustomer(method = "GET", payload) {
-        console.log("verify Customer")
-        const send = method == "GET" ? {} : {
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(payload)
+        
+        const [customer] = await verifyCustomerAPI(API, method, payload)
+        
+        if( !customer){
+            await insertCustomer("POST", payload)
+        }else {
+            //window.alert("Customer email already exists.")
+            setCustomerExists(true)
+            setCustomerInfo(prevCustomer => ({prevCustomer, ...customer}))
         }
-        try {
-            
-            const res = await fetch(`${API}/newUser/verifyCustomer`, {method, ...send})
-            const data = await res.json()
-            const [customer] = data.customer[0]
-             
-            if( data.customer[0].length == 0){
-                await insertCustomer("POST", payload)
-            }else {
-                //window.alert("Customer email already exists.")
-                setCustomerExists(true)
-                setCustomerInfo(prevCustomer => ({prevCustomer, ...customer}))
-            }
-            
-        }
-        catch(err){
-            return err
-        }
-
     }
 
 
     async function insertCustomer(method="GET", payload) {
+        console.log("inserto customer")
         const send = method == "GET" ? {}: {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(payload)
@@ -125,7 +113,9 @@ export default function NewCustomer({API}){
                             type="button" 
                             className="btn-close"
                             aria-label="Close"
-                            onClick={(e)=> resetCustomerExists(e)}></button>
+                            onClick={(e)=> resetCustomerExists(e)}>
+
+                        </button>
                     </div>
                 )}
                 <Header />
@@ -259,4 +249,32 @@ export default function NewCustomer({API}){
          
         
     }
+
+
+    
+        const send = method == "GET" ? {} : {
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(payload)
+        }
+        try {
+            
+            const res = await fetch(`${API}/newUser/verifyCustomer`, {method, ...send})
+            const data = await res.json()
+            const [customer] = data.customer[0]
+             
+            if( data.customer[0].length == 0){
+                await insertCustomer("POST", payload)
+            }else {
+                //window.alert("Customer email already exists.")
+                setCustomerExists(true)
+                setCustomerInfo(prevCustomer => ({prevCustomer, ...customer}))
+            }
+            
+        }
+        catch(err){
+            return err
+        }
+
+
+
     */

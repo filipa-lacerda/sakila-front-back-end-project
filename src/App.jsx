@@ -6,14 +6,18 @@ import MovieInfo from "./components/reused_components/MovieInfo";
 import NewCustomer from "./components/NewCustomer";
 import Input from "./components/reused_components/Input";
 import NewRental from "./components/NewRental";
-
+import Login from "./components/Login";
 import './index.css'
+
 
 // Server URL
 const API = "http://localhost:3000";
 
 
 function App() {
+
+  
+
   return (
     <>    
     <BrowserRouter>
@@ -25,6 +29,7 @@ function App() {
         <Route path="/form" element={<Input />} />
         <Route path="/test" element={<Test />} />
         <Route path="rental/newRental/:customerId" element={<NewRental API={API}/>} />
+        <Route path="/login" element={<Login API={API}/>} />
       </Routes>
       
     </BrowserRouter>

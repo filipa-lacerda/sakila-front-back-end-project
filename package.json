@@ -12,13 +12,16 @@
     "test:watch": "vitest --watch"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "dotenv": "^17.1.0",
     "fastify": "^5.3.3",
     "fastify-cli": "^7.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.58.1",
-    "react-router": "^7.6.0"
+    "react-redux": "^9.2.0",
+    "react-router": "^7.6.0",
+    "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

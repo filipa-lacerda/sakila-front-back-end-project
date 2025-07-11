@@ -1,5 +1,5 @@
-import MovieInfo from "./MovieInfo"
-import { Link } from "react-router"
+//import MovieInfo from "./MovieInfo"
+import { Link } from "react-router-dom"
 
 export default function MovieCard({movies, storeId = "1", customerId = "", history = true, handleRental, handleRRental}){
 
@@ -51,11 +51,6 @@ export default function MovieCard({movies, storeId = "1", customerId = "", histo
                                 }}> Return Film</a>
                         )}
                     </div>
-                    
-
-                    
-                        
-                    
                 </div>
             </div>
         </div>
@@ -63,7 +58,7 @@ export default function MovieCard({movies, storeId = "1", customerId = "", histo
 
     return(
         <div className="container ">
-            <a href={`/rental/newRental/${customerId}`} className="btn btn-primary">Make new Rental</a>
+            <Link to={`/rental/newRental/${customerId}`} className="btn btn-primary">Make new Rental</Link>
             <p>Number of Movies: {movies.length}</p>
             <div className="row g-4">
                 {moviesCardsElemnts}

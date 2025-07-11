@@ -1,20 +1,32 @@
 "use strict"
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+//import { fetchUserByMail } from '../../features/user/userSlice'
+
+
+
 export default function NavBar(){
+
+    const dispatch = useDispatch()
+    const userInfo = useSelector((state) => state.user.userInfo)
+    const loggedIn = useSelector((state) => state.user.loggedIn)
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-body-terciary">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">Sakila Project</a>
+                <Link className="navbar-brand" to="/">Sakila Project</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/rental">Rental</a>
+                            <Link className="nav-link active" aria-current="page" to="/rental">Rental</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/new_customer">New Customer</a>
+                            <Link className="nav-link" to="/new_customer">New Customer</Link>
                         </li>
+                        {/**
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dropdown
@@ -26,10 +38,28 @@ export default function NavBar(){
                                 <li><a className="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
+                        
                         <li className="nav-item">
                             <a className="nav-link disabled" aria-disabled="true">Disabled</a>
                         </li>
+                         */}
                     </ul>
+                    {!loggedIn ? (
+                        <a href="/login" className="btn btn-default"> Login</a>
+                    ) : (
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {userInfo.first_name}
+                            </a>
+                            <ul className="dropdown-menu">
+                                <li><a className="dropdown-item" href="#">Personal Information</a></li>
+                                <li><hr className="dropdown-divider"></hr></li>
+                                <li><a className="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                            
+                        </li>
+                    )}
+                    
                 </div>
             </div>
         </nav>
