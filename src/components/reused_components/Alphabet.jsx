@@ -60,7 +60,7 @@ export default function Alphabet({customers, filterCustomers, showList}){
                     )}
                 </div>
                 <div>
-                    {showList && <p>Show</p>}
+                    {showList == true ? <p>Filter On</p> : <p>Filter Off</p>}
                 </div>
             </div>
         </>
