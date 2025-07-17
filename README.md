@@ -24,3 +24,8 @@
 
 <p>To run the client side: on the project root, run: npm run dev</p>
 <p>To run the "server" side: on the mock-srv root, run: npm run dev</p>
+
+<h2>Login Page</h2>
+<p>This page has user email and password.</p>
+<p>THe password is just a mock element, so you can insert whatever you want.</p>
+<p>The email input, will check the database for the email and it will, either login the user or nothing yet (still working on it)</p>
