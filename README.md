@@ -1,5 +1,5 @@
 # React + Vite
-Steps to make it work:
+<h2>Mysql part</h2>
 <p> You should have Mysql installed and have the sakila database running.</p>
 <p> If you know how, you should add, to the customer table, the following user: </p>
 <ul>
@@ -16,6 +16,7 @@ Steps to make it work:
                 values (1, admin, admin, admin@mail.com, 109, 1, now());
 </p>
 <br></br>
+<h2>Steps to make it work: </h2>
 <ol>
   <li><span style="bold">run: </span> npm install  (on main folder and mock-srv)</li>
   <li>create .env file on root (folder mock-srv) - this file will take the password you defined to access your MySql databases</li>
