@@ -1,31 +1,34 @@
 # React + Vite
-<h2>Mysql part</h2>
-<p> You should have Mysql installed and have the sakila database running.</p>
-<p> If you know how, you should add, to the customer table, the following user: </p>
-<ul>
-  <li>first_name: admin</li>
-  <li>last_name: admin</li>
-  <li>email: admin@mail.com</li>
-  <li>store_id: 1</li>
-  <li>address_id: 109</li>
-</ul>
-<p> This will be usefull to have specific menus and page access only available to admin</p>
-<p> Command to add the user to the customer table using Mysql Workbench</p>
-<p>use sakiala; </p>
-<p>  insert into customer ( store_id, first_name, last_name, email, address_id, active, create_date)
+## MySQL part
+1. You should have MySQL installed and have the sakila database running.
+
+You should add to the customer table the following user:
+```mysql
+first_name: admin
+last_name: admin
+email: admin@mail.com
+store_id: 1
+address_id: 109
+```
+
+2. This will be useful to have specific menus and page access only available to the admin
+Command to add the user to the customer table using MySQL Workbench
+```mysql
+use sakiala
+insert into customer ( store_id, first_name, last_name, email, address_id, active, create_date)
                 values (1, admin, admin, admin@mail.com, 109, 1, now());
-</p>
-<br></br>
-<h2>Steps to make it work: </h2>
-<ol>
-  <li><span style="bold">run: </span> npm install  (on main folder and mock-srv)</li>
-  <li>create .env file on root (folder mock-srv) - this file will take the password you defined to access your MySql databases</li>
-</ol>
+```
 
-<p>To run the client side: on the project root, run: npm run dev</p>
-<p>To run the "server" side: on the mock-srv root, run: npm run dev</p>
+## Development
 
-<h2>Login Page</h2>
-<p>This page has user email and password.</p>
-<p>THe password is just a mock element, so you can insert whatever you want.</p>
-<p>The email input, will check the database for the email and it will, either login the user or nothing yet (still working on it)</p>
+### Dependencies
+In the main folder, install the dependencies with `npm install`
+Do the same for the server: `cd mock-srv && npm install`
+
+## Credentials
+1. Create an `.env` file on `mock-srv`
+1. Add the password of the MySQL database to the file
+
+### Run the project
+1. Client: `npm run dev`
+2. Server: `cd mock-srv && npm run dev`
