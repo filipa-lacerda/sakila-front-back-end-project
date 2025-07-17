@@ -11,9 +11,8 @@ Steps to make it work:
 </ul>
 <p> This will be usefull to have specific menus and page access only available to admin</p>
 <p> Command to add the user to the customer table using Mysql Workbench</p>
-<p>
-  use sakiala;
-  insert into customer ( store_id, first_name, last_name, email, address_id, active, create_date)
+<p>use sakiala; </p>
+<p>  insert into customer ( store_id, first_name, last_name, email, address_id, active, create_date)
                 values (1, admin, admin, admin@mail.com, 109, 1, now());
 </p>
 <br></br>
